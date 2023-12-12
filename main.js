@@ -23,3 +23,4 @@ document.getElementById('clear-fields').onclick = () => {
   document.getElementById('custom-name').value = "";
   document.getElementById('custom-file').value = "";
   document.getElementById('clear-fields').setAttribute("disabled","true");
+}
