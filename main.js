@@ -4,7 +4,7 @@ var input = document.createElement("input");
 input.id = "clear-fields";
 input.type = "button";
 input.value = "clear fields"; 
-input.class = "class="product-form__submit button button--full-width button--secondary"
+input.class = "product-form__submit button button--full-width button--secondary"
 input.disabled = "true";
 existingButton.parentNode.insertBefore(input, existingButton.nextSibling);
 
