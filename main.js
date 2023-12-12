@@ -1,3 +1,4 @@
+console.log('*************loading script from shs script tag******************');
 var existingButton = document.getElementById('ProductSubmitButton-template--16098713010371__main');
 var input = document.createElement("input");
 input.id = "clear-fields";
