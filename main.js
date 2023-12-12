@@ -1,5 +1,5 @@
 console.log('*************loading script from shs script tag******************');
-var existingButton = document.getElementById('custom-name');
+var existingButton = document.getElementById('custom-name').parentNode;
 var input = document.createElement("input");
 input.id = "clear-fields";
 input.type = "button";
