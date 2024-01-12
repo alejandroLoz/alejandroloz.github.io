@@ -1,13 +1,9 @@
-const userInputField = document.getElementById('user-input');
-    const userImage = document.getElementById('image-upload');
-    // Function to clear the input field value
-    function clearInputFields() {
-      userInputField.value = '';
-      userImage.value = '';
-    }
-    // Create a Clear Fields button dynamically
-    const clearButton = document.createElement('button');
-    clearButton.textContent = 'Clear Fields';
-    clearButton.addEventListener('click', clearInputFields);
-    // Append the Clear Fields button after the input field
-    userImage.insertAdjacentElement('afterend', clearButton);
+
+  checkValues();
+function checkValues() {
+ var htmlActions = "<div class='actions' id='custom-actions'><button style='color:#fff;background-color:#ccc;text-align:center;' id='clear' disabled>Clear fields</button></div>";
+  !document.querySelector('.actions') ? document.querySelector('#custom-fields').innerHTML+=htmlActions : false;
+
+  document.querySelector('#clear') && document.querySelector('#clear').addEventListener('click', () => {
+    document.querySelector('#inputText1').value = "";
+    document.querySel
