@@ -1,39 +1,25 @@
-checkValues();
-function checkValues() {
-  var htmlActions =
-    "<div class='actions' id='custom-actions'><button style='color:#fff;background-color:#ccc;text-align:center;' id='clear' disabled>Clear fields</button></div>";
-  !document.querySelector(".actions")
-    ? (document.querySelector("#custom-fields").innerHTML += htmlActions)
-    : false;
-
-  document.querySelector("#clear") &&
-    document.querySelector("#clear").addEventListener("click", () => {
-      document.querySelector("#inputText1").value = "";
-      document.querySelector("#inputFile1").value = "";
-      updateButton();
-    });
-
-  document
-    .querySelector("#inputText1")
-    .addEventListener("change", () => updateButton());
-  document
-    .querySelector("#inputFile1")
-    .addEventListener("change", () => updateButton());
-}
-
-function updateButton() {
-  var someFieldHasValue = Array.from(
-    document.querySelectorAll(".custom-inputs .line-input input")
-  ).some((v, i) => v.value !== "");
-  if (someFieldHasValue) {
-    document
-      .querySelector("#clear")
-      .setAttribute("style", "background-color: #000");
-    document.querySelector("#clear").removeAttribute("disabled");
-  } else {
-    document
-      .querySelector("#clear")
-      .setAttribute("style", "background-color: #ccc");
-    document.querySelector("#clear").setAttribute("disabled", true);
+(function() {
+  const customFields = document.getElementById('customFields');
+  const customTextField = document.getElementById('customText');
+  const customImageField = document.getElementById('fileInput');
+  const clearFieldsButton = document.createElement('button');
+  clearFieldsButton.classList.add('button', 'button--full-width', 'button--secondary');
+  
+  clearFieldsButton.innerText = 'Clear fields';
+  customFields.appendChild(clearFieldsButton);
+  clearFieldsButton.addEventListener('click', () => {
+    customTextField.value = "";
+    customImageField.value = "";
+  })
+  function makeDisabled() {
+    if (customTextField.value  "" && customImageField.value  "") {
+      clearFieldsButton.disabled = true;
+    } else {
+      clearFieldsButton.disabled = false;
+    }
   }
-}
+  // Check if fields are empty and disable the button
+  customTextField.addEventListener('keydown', () => makeDisabled())
+  customImageField.addEventListener('change', () => makeDisabled())
+  clearFieldsButton.disabled = true;
+})()
